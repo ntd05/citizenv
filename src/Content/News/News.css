@@ -1,0 +1,23 @@
+.a {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 30px;
+    color: rgb(1, 53, 44);
+}
+.a p {
+    text-align: justify;
+    line-height: 1.5;
+    font-weight: normal;
+    font-style: italic;
+}
+.a img {
+    width: 10%;
+    height: auto;
+    margin-right: 30px;
+}
+.a > div{
+    display: flex;
+    margin: 30px;
+}
+.a a{
+    font-size: larger;
+}

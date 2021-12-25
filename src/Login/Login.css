@@ -1,0 +1,60 @@
+.formLogin > div{
+    display: block;
+    text-align: center;
+    margin: 25px;
+}
+.formLogin span {
+    color: #01a690;
+    font-size: 45px;
+}
+
+.formLogin img {
+    width: 50px;
+}
+
+.formLogin input {
+        width: 250px;
+        height: 40px;
+        border: 1px solid rgb(114, 192, 162);
+        border-radius: 5px;
+        outline: none;
+        padding: 2px;
+        font-weight: lighter;
+        font-size: 15px;
+}
+
+.formLogin input[type="checkbox"]{
+    height: 15px;
+    width: 15px;
+}
+
+.RePassword {
+    display: flex;
+}
+
+#RePass{
+    color: #01a690;
+    font-weight: lighter;
+    padding-left: 20px;
+    font-size: 16px;
+}
+
+.Login > button{
+    width: 250px;
+    height: 40px;
+    padding: 5px 5px;
+    font-size: 17px;
+    border: none;
+    border-radius: 5px;
+    background-color: #01a690;
+    color: white;
+    cursor: pointer;
+}
+
+.formLogin a {
+    text-decoration: none;
+    color: #01a690;
+    font-weight: lighter;
+    padding: 20px 0px;
+    font-size: 16px;
+}

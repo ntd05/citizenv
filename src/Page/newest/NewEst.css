@@ -1,0 +1,56 @@
+.ne{
+    display: block;
+    flex: 1;
+}
+.nes h1{
+    color: #e96518;
+    padding-bottom: 5px;
+    border-bottom: 1px solid rgb(5, 58, 59);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.ne img {
+    width: 25%;
+    height: auto;
+    margin-bottom: 10px;
+    margin-right: 10px;
+}
+.ne > div {
+    display: flex;
+    margin: 10px;
+}
+.ne a {
+    color: #277469;
+    font-weight: 500;
+    line-height: 18px;
+    font-style: italic;
+    font-size: 17px;
+}
+a{
+    text-decoration: none
+}
+a:hover {
+    color: rgb(216, 39, 39);
+}
+.nes{
+    display: flex;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-right: 15px;
+}
+@media screen and (max-width: 1200px){
+    .nes{
+        font-size: calc(14px + 2 * ((100vw - 768px) / 598));
+        margin-right: 0;
+    }
+    .ne > div{
+        margin-top: 0;
+        margin-right: 5px;
+    }
+    .ne a{
+        font-size: (8px + 2 * ((100vw - 768px) / 598))
+    }
+}
+@media screen and (max-width: 800px) {
+    .ne {
+    display: none;
+    }
+}

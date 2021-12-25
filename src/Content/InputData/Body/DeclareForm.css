@@ -1,0 +1,58 @@
+.formDeclareForm > div {
+    margin: 40px 0px;
+    display: flex;
+}
+
+.formDeclareForm label {
+    width: 150px;
+}
+
+.formDeclareForm input, select {
+    width: 250px;
+    height: 30px;
+    border: 1px solid rgb(114, 192, 162);
+    border-radius: 5px;
+    outline: none;
+    padding: 2px;
+}
+
+select {
+    cursor: pointer;
+}
+
+.Send > button{
+    height: 40px;
+    width: 80px;
+    font-size: 17px;
+    border: none;
+    border-radius: 5px;
+    background-color: #01a690;
+    color: white;
+    cursor: pointer;
+}
+
+.Send {
+    justify-content: center;
+}
+
+.warn {
+    color: rgb(211, 0, 0);
+    font-size: 14px;
+    font-weight: lighter;
+    margin: 0px;
+    padding: 0px ;
+}
+@media screen and (max-width: 1200px){
+    .formDeclareForm input{
+        width: 200px;
+    }
+}
+@media screen and (max-width: 1000px) {
+    .formDeclareForm > div {
+        margin: 0;
+        display: block;
+    }
+    .formDeclareForm label {
+        display: block;
+    }
+}
