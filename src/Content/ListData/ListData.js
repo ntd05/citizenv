@@ -4,8 +4,20 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 
 export default function ListData() {
+
     const url = 'http://localhost:3001/users/all'
     const [data, setData] = useState(null)
+    const [search, setSearch] = useState("");
+    const [valueSearch, setValueSearch] = useState("");
+
+    const handleOnChange = ({ target }) => {
+        setSearch(target.value);
+    };
+
+    const handleOnClick = () => {
+        setValueSearch(search);
+    };
+
     const getData = () =>
         fetch(url)
             .then((res) => res.json())
@@ -14,32 +26,8 @@ export default function ListData() {
         getData().then((data) => setData(data))
     }, [])
 
-    const DisplayData = data?.map((info) => {
-        return (
-            <tr>
-                <td>{info._id}</td>
-                <td>{info.CMND}</td>
-                <td>{info.name}</td>
-                <td>{info.DofB}</td>
-                <td>{info.Sex}</td>
-                <td>{info.Address}</td>
-                <td>{info.religion}</td>
-                <td>{info.EduLevel}</td>
-                <td>{info.Job}</td>
-                <td className="selectDB">
-                    <button>xóa</button>
-                    <button>sửa</button>
-                    <button>thêm</button>
-                </td>
-            </tr>
-        )
-    })
 
-
-    const DataOfCity = ['Thành phố', 'Hà Nội', 'TP Hồ Chí Minh', 'Hải Phòng', 'Đà Nẵng', 'Hà Giang', 'Cao Bằng', 'Lai Châu', 'Lào Cai', 'Tuyên Quang', 'Lạng Sơn', 'Bắc Kạn', 'Thái Nguyên', 'Yên Bái'];
-    const DataOfHuyen = ['Quận/Huyện/Thị xã', "Bình Chánh", "Bình Tân", "Bình Thạnh", "Cầu Giấy", "Chương Mỹ", "Đan Phượng", "Đông Anh", "Long Biên", "Hoàng Sa", "Liên Chiểu", "Ngũ Hành Sơn", "Sơn Trà", "Tân Uyên", "Thủ Dầu Một", "Định Quán"];
-    const DataOfXa = ['Xã/Phường/Thị trấn', "An Phú Tây", "Bình Chánh", "Bình Hưng", "Bình Lợi", "Đa Phước", "Hưng Long", "Lê Minh Xuân", "Phạm Văn Hai", "Phong Phú", "Quy Đức", "Tân Kiên", "Tân Nhựt", "Tân Quý Tây", "Tân Túc", "Vĩnh Lộc A", "Vĩnh Lộc B", "An Lạc"];
-
+    const DataOfCity = ['Thành phố', 'Hà Nội', 'Hồ Chí Minh', 'Hải Phòng', 'Đà Nẵng', 'Hà Giang', 'Cao Bằng', 'Lai Châu', 'Lào Cai', 'Tuyên Quang', 'Lạng Sơn', 'Bắc Kạn', 'Thái Nguyên', 'Yên Bái'];
 
     return (
         <div className="containerListData">
@@ -48,24 +36,14 @@ export default function ListData() {
                     <p>Danh sách dân số</p>
                 </div>
                 <div>
-                    <select className="form-select" aria-label="Default select example">
-                    {DataOfCity.map((option) => (
-                            <option>{option}</option>
-                        ))}
-                    </select>
-                    <select class="form-select" aria-label="Default select example">
-                    {DataOfHuyen.map((option) => (
-                            <option>{option}</option>
-                        ))}
-                    </select>
-                    <select class="form-select" aria-label="Default select example">
-                    {DataOfXa.map((option) => (
+                    <select className="form-select" aria-label="Default select example" onChange={handleOnChange}>
+                        {DataOfCity.map((option) => (
                             <option>{option}</option>
                         ))}
                     </select>
                 </div>
                 <div>
-                    <button>Ghi nhận</button>
+                    <button onClick={handleOnClick}>Ghi nhận</button>
                 </div>
             </div>
             <div className='BodyListData'>
@@ -85,7 +63,35 @@ export default function ListData() {
                         </tr>
                     </thead>
                     <tbody>
-                        {DisplayData}
+                        {(data?.filter((val) => {
+                            if (valueSearch == "") {
+                                return val
+                            }
+                            else if (val.Address.includes(valueSearch)) {
+                                return val;
+                            }
+                        }).map((val, key) => {
+                            console.log(val.name);
+                            return (
+                                <tr>
+                                    <td>{val._id}</td>
+                                    <td>{val.CMND}</td>
+                                    <td>{val.name}</td>
+                                    <td>{val.DofB}</td>
+                                    <td>{val.Sex}</td>
+                                    <td>{val.Address}</td>
+                                    <td>{val.religion}</td>
+                                    <td>{val.EduLevel}</td>
+                                    <td>{val.Job}</td>
+                                    <td className="selectDB">
+                                        <button>xóa</button>
+                                        <button>sửa</button>
+                                        <button>thêm</button>
+                                    </td>
+                                </tr>
+                            )
+
+                        }))}
                     </tbody>
 
                 </table>

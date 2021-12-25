@@ -23,12 +23,12 @@ export default function LookUp() {
     const handleOnClick = () => {
         setValueSearch(state);
     };
-    
+
     return (
         <div className="containerLookUp">
             <div className="HeaderLookUp">
                 <div>
-                    <input type="text" placeholder='Nhập CMND' onChange={handleOnChange} />
+                    <input type="text" placeholder='Nhập Id' onChange={handleOnChange} />
                 </div>
                 <div>
                     <button onClick={handleOnClick}>Ghi nhận</button>
@@ -62,14 +62,14 @@ export default function LookUp() {
                             return (
                                 <tr>
                                     <td>{val._id}</td>
-                <td>{val.CMND}</td>
-                <td>{val.name}</td>
-                <td>{val.DofB}</td>
-                <td>{val.Sex}</td>
-                <td>{val.Address}</td>
-                <td>{val.religion}</td>
-                <td>{val.EduLevel}</td>
-                <td>{val.Job}</td>
+                                    <td>{val.CMND}</td>
+                                    <td>{val.name}</td>
+                                    <td>{val.DofB}</td>
+                                    <td>{val.Sex}</td>
+                                    <td>{val.Address}</td>
+                                    <td>{val.religion}</td>
+                                    <td>{val.EduLevel}</td>
+                                    <td>{val.Job}</td>
                                 </tr>
                             )
 
