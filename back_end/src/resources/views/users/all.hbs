@@ -1,37 +1,47 @@
 <div class="mt-4">
-    <h3>Tất cả người dùng</h3>
+  <h3>Tất cả người dùng</h3>
 
-    <table class="table mt-4">
+  <table class="table mt-4">
     <thead>
-        <tr>
-            <th scope="col">Thứ tự</th>
-            <th scope="col">Họ và tên</th>
-            <th scope="col">Số chứng minh nhân dân</th>
-            <th scope="col">Ngày sinh</th>
-            <th scope="col" colspan="3">Giới tính</th>
-        </tr>
+      <tr>
+        <th scope="col">Thứ tự</th>
+        <th scope="col">CCCD/CMND</th>
+        <th scope="col">Họ tên</th>
+        <th scope="col">Ngày sinh</th>
+        <th scope="col">Giới tính</th>
+        <th scope="col">Địa chỉ</th>
+        <th scope="col">Tôn giáo</th>
+        <th scope="col">Trình độ văn hóa</th>
+        <th scope="col">Nghề nghiệp</th>
+      </tr>
     </thead>
     <tbody>
-        {{#each users}}
-        <tr>
-            <th scope="row">{{sum @index 1}}</th>
-            <td>{{this.name}}</td>
-            <td>{{this.cmnd}}</td>
-            <td>{{this.dateOfBirth}}</td>
-            <td>{{this.sex}}</td>
-            <td></td>
-            <td>
-                <a href="/users/{{this._id}}/edit" class="btn btn-success">Sửa</a>
-                <a href="" class="btn btn-danger" data-id="{{this._id}}" data-toggle="modal" data-target="#delete-user-modal">Xóa</a>
-            </td>
-        </tr>
-        {{/each}}
+      {{#each users}}
+      <tr>
+        <th scope="row">{{sum @index 1}}</th>
+        <td>{{this.CMND}}</td>
+        <td>{{this.name}}</td>
+        <td>{{this.DofB}}</td>
+        <td>{{this.Sex}}</td>
+        <td>{{this.Address}}</td>
+        <td>{{this.religion}}</td>
+        <td>{{this.EduLevel}}</td>
+        <td>{{this.Job}}</td>
+        <td></td>
+        <td>
+          <a href="/users/{{this._id}}/edit" class="btn btn-success">Sửa</a>
+          <a href="" class="btn btn-danger" data-id="{{this._id}}" data-toggle="modal"
+            data-target="#delete-user-modal">Xóa</a>
+        </td>
+      </tr>
+      {{/each}}
     </tbody>
-    </table>
+  </table>
 </div>
 
 <!-- Confirm Delete Modal -->
-<div class="modal fade" id="delete-user-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="delete-user-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -60,21 +70,21 @@
 <!-- Click Button Đồng ý thì chạy mà JS dưới để xóa -->
 <script>
 
-    document.addEventListener('DOMContentLoaded', function() {
-        var userId
-        var deleteForm = document.getElementById('delete-user-form')
-        var btnDeleteUser = document.getElementById('btn-delete-user')
-         
-        $('#delete-user-modal').on('show.bs.modal', function (event) {
-            var button = $(event.relatedTarget) 
-            userId = button.data('id')
-        })
-        
-        btnDeleteUser.onclick = function() {
-            deleteForm.action = '/users/' + userId + '?_method=DELETE'
-            deleteForm.submit()
-        }
+  document.addEventListener('DOMContentLoaded', function () {
+    var userId
+    var deleteForm = document.getElementById('delete-user-form')
+    var btnDeleteUser = document.getElementById('btn-delete-user')
 
+    $('#delete-user-modal').on('show.bs.modal', function (event) {
+      var button = $(event.relatedTarget)
+      userId = button.data('id')
     })
+
+    btnDeleteUser.onclick = function () {
+      deleteForm.action = '/users/' + userId + '?_method=DELETE'
+      deleteForm.submit()
+    }
+
+  })
 
 </script>

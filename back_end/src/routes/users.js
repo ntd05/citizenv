@@ -13,4 +13,6 @@ router.post('/store', userController.store); // Submit form create user
 
 router.get('/:slug', userController.show); // Show 1 user
 
+router.get('/allData', userController.showData);
+
 module.exports = router;

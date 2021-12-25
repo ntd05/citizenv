@@ -16,10 +16,22 @@ class UserController {
     showAll(req, res, next) {
         User.find({})
             .then((users) =>
-                // res.render('users/all', {
-                //     users: multipleMongooseToObject(users),
-                // })
-                res.json(users)
+                res.render('users/all', {
+                    users: multipleMongooseToObject(users),
+                })
+                //res.json(users)
+            )
+            .catch(next);
+    }
+
+    // [GET] /users/allData
+    showData(req, res, next) {
+        User.find({})
+            .then((users) =>
+                res.render('users/all', {
+                    users: multipleMongooseToObject(users),
+                })
+                //res.json(users)
             )
             .catch(next);
     }
