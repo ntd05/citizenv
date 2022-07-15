@@ -1,0 +1,17 @@
+.aaaa {
+  display: flex;
+  justify-content: center;
+  margin: 300px;
+  align-items: center;
+}
+
+.aaaa>input {
+  padding: 5px;
+  margin: 10px;
+  font-size: larger;
+
+}
+
+.aaaa>button {
+  height: 35px;
+}
